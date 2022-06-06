@@ -38,7 +38,7 @@ const Home = () => (
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         css={{ backdropFilter: 'blur(10px)' }}
       >
-        Hello, I&apos;m a web developer based in India!
+        Hello, I&apos;m a Web developer based in India!
       </Box>
 
       <Box display={{ md: 'flex' }}>
@@ -78,24 +78,15 @@ const Home = () => (
 
       <Section delay={0.1}>
         <Heading as="h3" variant="section-title">
-          Work
+          About
         </Heading>
         <Paragraph>
-          Takuya is a freelance and a full-stack developer based in Osaka with a
-          passion for building digital services/stuff he wants. He has a knack
-          for all things launching products, from planning and designing all the
-          way to solving real-life problems with code. When not online, he loves
-          hanging out with his camera. Currently, he is living off of his own
-          product called{' '}
-          <NextLink href="/works/inkdrop" passHref scroll={false}>
-            <Link>Inkdrop</Link>
-          </NextLink>
-          . He publishes content for marketing his products and his YouTube
-          channel called &quot;
-          <NextLink href="https://www.youtube.com/devaslife" passHref>
-            <Link target="_blank">Dev as Life</Link>
-          </NextLink>
-          &quot; has more than 100k subscribers.
+          My name is GYANA RANJAN PANDA and I am a freelance web developer. I am
+          constantly learning web and app technologies and other design related
+          topics, currently playing around with NODEJS, REACTJS, NEXTJS. I also
+          like to code in C++, Python. I like to do traveling and binging anime
+          in my free time. I’m currently available for work and taking on new
+          projects, so feel free to contact me{' '}
         </Paragraph>
         <Box align="center" my={4}>
           <NextLink href="/works" passHref scroll={false}>
@@ -108,25 +99,35 @@ const Home = () => (
 
       <Section delay={0.2}>
         <Heading as="h3" variant="section-title">
-          Bio
+          Timeline
         </Heading>
         <BioSection>
-          <BioYear>1984</BioYear>
-          Born in Osaka (大阪), Japan.
+          <BioYear>2022 to present</BioYear>
+          Working as SDE Intern{' '}
+          <Link href="https://twitter.com/FelvinSearch" target="_blank">
+            @FelvinSearch
+          </Link>
+        </BioSection>
+
+        <BioSection>
+          <BioYear>2022</BioYear>
+          Won{' '}
+          <Link
+            href="https://certopus.com/c/f75be7d8a6f4402292d725f23674f918"
+            target="_blank"
+          >
+            Felvin Open Source
+          </Link>{' '}
+          , HackOFiesta v3.0, hackathon held as part of Equinox, the techfest of
+          IIIT Lucknow
         </BioSection>
         <BioSection>
-          <BioYear>2010</BioYear>
-          Completed the Master&apos;s Program in the Graduate School of
-          Information Science at Nara Institute of Science and Technology
-          (奈良先端科学技術大学院大学情報科学研究科修士課程)
+          <BioYear>2021</BioYear>
+          Global Rank 15 October Challenge 2021 Division 3, Codechef
         </BioSection>
         <BioSection>
-          <BioYear>2010</BioYear>
-          Worked at Yahoo! Japan (ヤフー株式会社入社)
-        </BioSection>
-        <BioSection>
-          <BioYear>2012 to present</BioYear>
-          Working as a freelancer
+          <BioYear>2020</BioYear>
+          Joined VSSUT, For Btech CSE
         </BioSection>
       </Section>
 
@@ -136,12 +137,11 @@ const Home = () => (
         </Heading>
         <Paragraph>
           Anime, Music,{' '}
-          <Link href="https://illust.odoruinu.net/" target="_blank">
-            Drawing
-          </Link>
-          , Playing Drums,{' '}
-          <Link href="https://500px.com/p/craftzdog" target="_blank">
-            Photography
+          <Link
+            href="https://www.instagram.com/traveling_monk_7/"
+            target="_blank"
+          >
+            Traveling
           </Link>
           , Competitive Programming
         </Paragraph>
@@ -205,7 +205,7 @@ const Home = () => (
           </ListItem>
         </List>
 
-        <SimpleGrid columns={[1, 2, 2]} gap={6}>
+        {/* <SimpleGrid columns={[1, 2, 2]} gap={6}>
           <GridItem
             href="https://www.youtube.com/devaslife"
             title="Dev as Life"
@@ -220,7 +220,7 @@ const Home = () => (
           >
             A Markdown note-taking app
           </GridItem>
-        </SimpleGrid>
+        </SimpleGrid> */}
 
         <Box align="center" my={4}>
           <NextLink href="/works" passHref scroll={false}>

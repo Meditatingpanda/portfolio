@@ -18,34 +18,32 @@ const Works = () => (
   <Layout title="Works">
     <Container>
       <Heading as="h3" fontSize={20} mb={4}>
-        Works
+        Projects
       </Heading>
 
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
         <Section>
-          <WorkGridItem id="inkdrop" title="Inkdrop" thumbnail={thumbInkdrop}>
-            A Markdown note-taking app with 100+ plugins, cross-platform and
-            encrypted data sync support
+          <WorkGridItem id="inkdrop" title="CONFESSO" thumbnail={thumbInkdrop}>
+            React.js,Material-UI,MongoDB,ExpressJs,Redux,Firebase,Mongoose
           </WorkGridItem>
         </Section>
         <Section>
           <WorkGridItem
             id="walknote"
-            title="walknote"
+            title="KRYPT MARKETPLACE"
             thumbnail={thumbWalknote}
           >
-            Music recommendation app for iOS
+            React js,Tailwind,Solidity,Javascript
           </WorkGridItem>
         </Section>
 
         <Section delay={0.1}>
           <WorkGridItem
             id="fourpainters"
-            title="The four painters"
+            title="ECOMMERCE WEBSITE"
             thumbnail={thumbFourPainters}
           >
-            A video work generated with deep learning, imitating famous four
-            painters like Van Gogh
+            React js,Tailwind,Firebase Auth,Javascript,Commerce Js
           </WorkGridItem>
         </Section>
         <Section delay={0.1}>
@@ -66,28 +64,35 @@ const Works = () => (
 
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
         <Section delay={0.3}>
-          <WorkGridItem id="margelo" thumbnail={thumbMargelo} title="Margelo">
+          <WorkGridItem id="styly" thumbnail={thumbStyly} title="Instant Apps">
+            Instant apps are the small interactive cards which you get for your
+            search queries.
+          </WorkGridItem>
+        </Section>
+
+        <Section delay={0.3}>
+          <WorkGridItem
+            id="margelo"
+            thumbnail={thumbMargelo}
+            title="FELVIN SEARCH"
+          >
             A website of the elite app development and contracting agency based
             in Austria
           </WorkGridItem>
         </Section>
+
         <Section delay={0.3}>
           <WorkGridItem
             id="modetokyo"
             thumbnail={thumbModeTokyo}
-            title="mode.tokyo"
+            title="MAXTAP"
           >
             The mode magazine for understanding to personally enjoy Japan
           </WorkGridItem>
         </Section>
-        <Section delay={0.3}>
-          <WorkGridItem id="styly" thumbnail={thumbStyly} title="Styly">
-            A VR Creative tools for fashion brands
-          </WorkGridItem>
-        </Section>
       </SimpleGrid>
 
-      <Section delay={0.4}>
+      {/* <Section delay={0.4}>
         <Divider my={6} />
 
         <Heading as="h3" fontSize={20} mb={4}>
@@ -116,7 +121,7 @@ const Works = () => (
             Windows
           </WorkGridItem>
         </Section>
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Container>
   </Layout>
 )
