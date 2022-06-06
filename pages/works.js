@@ -13,7 +13,11 @@ import thumbStyly from '../public/images/works/styly_eyecatch.png'
 import thumbPichu2 from '../public/images/works/pichu2_eyecatch.png'
 import thumbFreeDBTagger from '../public/images/works/freedbtagger_eyecatch.png'
 import thumbAmembo from '../public/images/works/amembo_eyecatch.png'
-
+import confesso from '../public/images/projects/confesso.png'
+import krypt from '../public/images/projects/krypt.png'
+import ecommerce from '../public/images/projects/ecommerce.png'
+import instant from '../public/images/Collabrations/instantsApps.png'
+import felvin from '../public/images/Collabrations/felvin.png'
 const Works = () => (
   <Layout title="Works">
     <Container>
@@ -23,7 +27,7 @@ const Works = () => (
 
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
         <Section>
-          <WorkGridItem id="inkdrop" title="CONFESSO" thumbnail={thumbInkdrop}>
+          <WorkGridItem id="inkdrop" title="CONFESSO" thumbnail={confesso}>
             React.js,Material-UI,MongoDB,ExpressJs,Redux,Firebase,Mongoose
           </WorkGridItem>
         </Section>
@@ -31,7 +35,7 @@ const Works = () => (
           <WorkGridItem
             id="walknote"
             title="KRYPT MARKETPLACE"
-            thumbnail={thumbWalknote}
+            thumbnail={krypt}
           >
             React js,Tailwind,Solidity,Javascript
           </WorkGridItem>
@@ -41,7 +45,7 @@ const Works = () => (
           <WorkGridItem
             id="fourpainters"
             title="ECOMMERCE WEBSITE"
-            thumbnail={thumbFourPainters}
+            thumbnail={ecommerce}
           >
             React js,Tailwind,Firebase Auth,Javascript,Commerce Js
           </WorkGridItem>
@@ -64,7 +68,7 @@ const Works = () => (
 
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
         <Section delay={0.3}>
-          <WorkGridItem id="styly" thumbnail={thumbStyly} title="Instant Apps">
+          <WorkGridItem id="styly" thumbnail={instant} title="Instant Apps">
             Instant apps are the small interactive cards which you get for your
             search queries.
           </WorkGridItem>
@@ -73,7 +77,7 @@ const Works = () => (
         <Section delay={0.3}>
           <WorkGridItem
             id="margelo"
-            thumbnail={thumbMargelo}
+            thumbnail={felvin}
             title="FELVIN SEARCH"
           >
             A website of the elite app development and contracting agency based
