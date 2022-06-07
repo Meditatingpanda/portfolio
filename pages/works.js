@@ -3,14 +3,15 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
 
-import thumbMenkiki from '../public/images/works/menkiki_eyecatch.png'
-import thumbModeTokyo from '../public/images/works/modetokyo_eyecatch.png'
+// import thumbMenkiki from '../public/images/works/menkiki_eyecatch.png'
+// import thumbModeTokyo from '../public/images/works/modetokyo_eyecatch.png'
 
 import confesso from '../public/images/projects/confesso.png'
 import krypt from '../public/images/projects/krypt.png'
 import ecommerce from '../public/images/projects/ecommerce.png'
 import instant from '../public/images/Collabrations/instantsApps.png'
 import felvin from '../public/images/Collabrations/felvin.png'
+import sizefy from '../public/images/projects/sizefy.png'
 const Works = () => (
   <Layout title="Works">
     <Container>
@@ -20,33 +21,33 @@ const Works = () => (
 
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
         <Section>
-          <WorkGridItem id="inkdrop" title="CONFESSO" thumbnail={confesso}>
-            React.js,Material-UI,MongoDB,ExpressJs,Redux,Firebase,Mongoose
+          <WorkGridItem id="confesso" title="CONFESSO" thumbnail={confesso}>
+            Full Stack Social media web app designed to tackle imposter
+            syndrome.
           </WorkGridItem>
         </Section>
         <Section>
           <WorkGridItem
-            id="walknote"
+            id="krypt"
             title="KRYPT MARKETPLACE"
             thumbnail={krypt}
           >
-            React js,Tailwind,Solidity,Javascript
+            Crypto Transactions marketplace
           </WorkGridItem>
         </Section>
 
         <Section delay={0.1}>
           <WorkGridItem
-            id="fourpainters"
+            id="ecommerece"
             title="ECOMMERCE WEBSITE"
             thumbnail={ecommerce}
           >
-            React js,Tailwind,Firebase Auth,Javascript,Commerce Js
+            A headless ecommerce website
           </WorkGridItem>
         </Section>
         <Section delay={0.1}>
-          <WorkGridItem id="menkiki" thumbnail={thumbMenkiki} title="Menkiki">
-            An app that suggests ramen(noodle) shops based on a given photo of
-            the ramen you want to eat
+          <WorkGridItem id="sizefy" thumbnail={sizefy} title="sizefy">
+            An extension to show the size of the GitHub repository.
           </WorkGridItem>
         </Section>
       </SimpleGrid>
@@ -61,28 +62,27 @@ const Works = () => (
 
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
         <Section delay={0.3}>
-          <WorkGridItem id="styly" thumbnail={instant} title="Instant Apps">
+          <WorkGridItem id="instant" thumbnail={instant} title="Instant Apps">
             Instant apps are the small interactive cards which you get for your
             search queries.
           </WorkGridItem>
         </Section>
 
         <Section delay={0.3}>
-          <WorkGridItem id="margelo" thumbnail={felvin} title="FELVIN SEARCH">
-            A website of the elite app development and contracting agency based
-            in Austria
+          <WorkGridItem id="felvin" thumbnail={felvin} title="FELVIN SEARCH">
+            A Startup to add Addrenaline  to  your search Engine
           </WorkGridItem>
         </Section>
-
+{/* 
         <Section delay={0.3}>
           <WorkGridItem
             id="modetokyo"
             thumbnail={thumbModeTokyo}
             title="MAXTAP"
           >
-            The mode magazine for understanding to personally enjoy Japan
+            Start Up to Modernize the traditional ads system
           </WorkGridItem>
-        </Section>
+        </Section> */}
       </SimpleGrid>
 
       {/* <Section delay={0.4}>
