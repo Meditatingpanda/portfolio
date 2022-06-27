@@ -13,10 +13,11 @@ function Website({ Component, pageProps, router }) {
     <>
       <Script
         strategy="lazyOnload"
+        id="google-analytics"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
 
-      <Script strategy="lazyOnload">
+      <Script id="gtag-data" strategy="lazyOnload">
         {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
