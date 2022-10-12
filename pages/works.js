@@ -2,11 +2,15 @@ import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
-import instant from '../public/images/Collabrations/instantsApps.png'
-import felvin from '../public/images/Collabrations/felvin.png'
-import client from '../lib/notion'
+// import instant from '../public/images/Collabrations/instantsApps.png'
+// import felvin from '../public/images/Collabrations/felvin.png'
+import Client, { urlFor } from '../lib/sanity'
+// import client from '../lib/notion'
 
-const Works = ({ works }) => {
+const Works = ({ works, internships }) => {
+  console.log(urlFor(internships[0].image.asset._ref))
+  console.log(works)
+  console.log(internships)
   return (
     <Layout title="Works">
       <Container>
@@ -16,16 +20,16 @@ const Works = ({ works }) => {
 
         <SimpleGrid columns={[1, 1, 2]} gap={6}>
           {works.map(work => {
-            const { title, projects, img } = work.properties
+            //const { title, projects, img } = work.properties
 
             return (
-              <Section key={work.id}>
+              <Section key={work._id}>
                 <WorkGridItem
-                  id={work.id}
-                  title={projects.title[0].plain_text}
-                  thumbnail={img.url}
+                  id={work._id}
+                  title={work.title}
+                  thumbnail={urlFor(work.image[0].asset._ref).height(600).url()}
                 >
-                  {title.rich_text[0].plain_text}
+                  {work.shortDescription}
                 </WorkGridItem>
               </Section>
             )
@@ -41,18 +45,22 @@ const Works = ({ works }) => {
         </Section>
 
         <SimpleGrid columns={[1, 1, 2]} gap={6}>
-          <Section delay={0.3}>
-            <WorkGridItem id="instant" thumbnail={instant} title="Instant Apps">
-              Instant apps are the small interactive cards which you get for
-              your search queries.
-            </WorkGridItem>
-          </Section>
+          {
+            internships.map(internship => {
+              return (
+                <Section key={internship._id}>
+                  <WorkGridItem
+                    id={internship._id}
+                    title={internship.title}
+                    thumbnail={urlFor(internship.image.asset._ref).width(600).url()}
+                  >
+                    {internship.shortDescription}
+                  </WorkGridItem>
+                </Section>
+              )
+            })
+          }
 
-          <Section delay={0.3}>
-            <WorkGridItem id="felvin" thumbnail={felvin} title="FELVIN SEARCH">
-              A Startup to add Addrenaline to your search Engine
-            </WorkGridItem>
-          </Section>
           {/* 
         <Section delay={0.3}>
           <WorkGridItem
@@ -103,14 +111,18 @@ const Works = ({ works }) => {
 export default Works
 
 export async function getStaticProps() {
-  const databaseId = process.env.NEXT_PUBLIC_WORK_DB
-  const res = await client.databases.query({
-    database_id: databaseId
-  })
+  const works = await Client.fetch(`*[_type == "work"]`)
+  const internships = await Client.fetch(`*[_type == "internship"]`)
+  console.log(works)
+  // const databaseId = process.env.NEXT_PUBLIC_WORK_DB
+  // const res = await client.databases.query({
+  //   database_id: databaseId
+  // })
 
   return {
     props: {
-      works: res.results
+      works,
+      internships
     }
   }
 }
