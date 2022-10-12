@@ -10,24 +10,27 @@ import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
-import client from '../../lib/notion'
+// import client from '../../lib/notion'
+import Client, { urlFor } from '../../lib/sanity'
+
 
 const Work = ({ work }) => {
-  const { projects, desc, website, stack, imgs } = work[0].properties
-  const imgsList = imgs.rich_text.filter((img, index) => index % 2 === 0)
+  console.log(work)
+  // const { projects, desc, website, stack, imgs } = work[0].properties
+  // const imgsList = imgs.rich_text.filter((img, index) => index % 2 === 0)
 
   return (
     <Layout title="confesso">
       <Container>
         <Title>
-          {projects.title[0].plain_text} <Badge>2022-</Badge>
+          {work[0].title} <Badge>2022-</Badge>
         </Title>
-        <P>{desc.rich_text[0].plain_text}</P>
+        <P>{work[0].desc}</P>
         <List ml={4} my={4}>
           <ListItem>
             <Meta>Website</Meta>
-            <Link href={website.rich_text[0].plain_text}>
-              {website.rich_text[0].plain_text} <ExternalLinkIcon mx="2px" />
+            <Link href={work[0].link}>
+              {work[0].link} <ExternalLinkIcon mx="2px" />
             </Link>
           </ListItem>
           <ListItem>
@@ -36,7 +39,11 @@ const Work = ({ work }) => {
           </ListItem>
           <ListItem>
             <Meta>Stack</Meta>
-            <span>{stack.rich_text[0].plain_text}</span>
+
+            {work && work[0].stacks.map((item, id) => <Badge colorScheme="cyan" mr={2} key={id}> {item}</Badge>)}
+
+
+
           </ListItem>
           {/* <ListItem>
           <Meta>Blogpost</Meta>
@@ -46,12 +53,12 @@ const Work = ({ work }) => {
           </Link>
         </ListItem> */}
         </List>
-        {imgsList.map((img, id) => {
+        {work[0].image.map((img, id) => {
           return (
             <WorkImage
               key={id}
-              src={img.text.link.url}
-              alt={projects.title[0].plain_text}
+              src={urlFor(img.asset._ref).height(500).url()}
+              alt={work[0].title}
             />
           )
         })}
@@ -73,14 +80,15 @@ const Work = ({ work }) => {
 export default Work
 
 export async function getStaticPaths() {
-  const databaseId = process.env.NEXT_PUBLIC_WORK_DB
-  const res = await client.databases.query({
-    database_id: databaseId
-  })
+  // const databaseId = process.env.NEXT_PUBLIC_WORK_DB
+  // const res = await client.databases.query({
+  //   database_id: databaseId
+  // })
+  const works = await Client.fetch(`*[_type == "work"]`)
 
   // Get the paths we want to pre-render based on posts
-  const paths = res.results.map(post => ({
-    params: { id: post.id }
+  const paths = works.map(post => ({
+    params: { id: post._id }
   }))
 
   // We'll pre-render only these paths at build time.
@@ -92,12 +100,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
-  const databaseId = process.env.NEXT_PUBLIC_WORK_DB
-  const res = await client.databases.query({
-    database_id: databaseId
-  })
-
-  const work = res.results.filter(key => params.id === key.id)
+  // const databaseId = process.env.NEXT_PUBLIC_WORK_DB
+  // const res = await client.databases.query({
+  //   database_id: databaseId
+  // })
+  const works = await Client.fetch(`*[_type == "work"]`)
+  const work = works.filter(key => params.id === key._id)
 
   // Pass post data to the page via props
   return { props: { work } }
