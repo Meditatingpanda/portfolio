@@ -3823,9 +3823,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"meditating panda portfolio@workspace:.":
+"meditating-panda@workspace:.":
   version: 0.0.0-use.local
-  resolution: "meditating panda portfolio@workspace:."
+  resolution: "meditating-panda@workspace:."
   dependencies:
     "@chakra-ui/icons": ^1.1.7
     "@chakra-ui/react": ^1.8.8

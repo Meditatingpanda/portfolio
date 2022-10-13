@@ -17,7 +17,7 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 import { FcDocument } from 'react-icons/fc'
-
+import { RiAdminFill } from 'react-icons/ri'
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href
   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
@@ -89,6 +89,19 @@ const Navbar = props => {
             <FcDocument />
             Resume
           </LinkItem>
+
+          <LinkItem
+            target="_blank"
+            href="https://meditatingpanda.sanity.studio/"
+            path={path}
+            display="inline-flex"
+            alignItems="center"
+            style={{ gap: 4 }}
+            pl={2}
+          >
+            <RiAdminFill />
+            Admin
+          </LinkItem>
         </Stack>
 
         <Box flex={1} align="right">
@@ -117,6 +130,12 @@ const Navbar = props => {
                   href="https://drive.google.com/file/d/1OJTrPtlgCosZamEupMC44wuAdp1MKdFB/view?usp=sharing"
                 >
                   Resume
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  href="https://meditatingpanda.sanity.studio/"
+                >
+                  Admin
                 </MenuItem>
               </MenuList>
             </Menu>

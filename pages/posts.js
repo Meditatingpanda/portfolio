@@ -2,11 +2,10 @@ import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { GridItem } from '../components/grid-item'
+import Client, { urlFor } from '../lib/sanity'
 
-import v1 from '../public/images/blogs/b1.png'
-import v2 from '../public/images/blogs/b2.png'
 
-const Posts = () => (
+const Posts = ({posts}) => (
   <Layout title="Posts">
     <Container>
       <Heading as="h3" fontSize={20} mb={4}>
@@ -15,16 +14,14 @@ const Posts = () => (
 
       <Section delay={0.1}>
         <SimpleGrid columns={[1, 2, 2]} gap={6}>
-          <GridItem
-            title="Your Search Engine On Adrenaline"
-            thumbnail={v2}
-            href="https://dev.to/meditatingpanda/your-search-engine-on-adrenaline-3j0p"
-          />
-          <GridItem
-            title="Content Security Policy Nightmare"
-            thumbnail={v1}
-            href="https://dev.to/meditatingpanda/content-security-policy-nightmare-f9b"
-          />
+          {posts.map((post) =>(<GridItem
+            key={post._id}
+            title={post.title}
+            thumbnail={urlFor(post.image.asset._ref).url()}
+            href={post.link}
+            blurDataURL={urlFor(post.image.asset._ref).width(10).height(10).url()}
+          /> ))}
+          
         </SimpleGrid>
       </Section>
 
@@ -62,4 +59,13 @@ const Posts = () => (
 )
 
 export default Posts
+
+
+export const getStaticProps = async () => {
+  const posts = await Client.fetch(`*[_type == "post"]`)
+ // console.log(posts)
+  return {
+    props: { posts },
+  }
+}
 

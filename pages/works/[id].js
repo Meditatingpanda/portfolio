@@ -20,7 +20,7 @@ const Work = ({ work }) => {
   // const imgsList = imgs.rich_text.filter((img, index) => index % 2 === 0)
 
   return (
-    <Layout title="confesso">
+    <Layout title={work[0].title}>
       <Container>
         <Title>
           {work[0].title} <Badge>2022-</Badge>
@@ -85,7 +85,7 @@ export async function getStaticPaths() {
   //   database_id: databaseId
   // })
   const works = await Client.fetch(`*[_type == "work"]`)
-
+  
   // Get the paths we want to pre-render based on posts
   const paths = works.map(post => ({
     params: { id: post._id }
