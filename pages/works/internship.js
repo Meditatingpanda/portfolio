@@ -58,17 +58,17 @@ const Internship = () => {
                         <Meta>Responsibilities</Meta>
                     </ListItem>
                     {
-                        internship && internship.desc.map((item, id) => <ListItem key={id} background='#937DC2' rounded={4} p={3} color='black' mb={2}>{item.children[0].text}</ListItem>)
+                        internship && internship.desc.map((item, id) => <ListItem key={id} background='#937DC2' rounded={4} p={3} color='black' mt={2} mb={2}>{item.children[0].text}</ListItem>)
 
                     }
 
                 </List>
 
                 <WorkImage
-              key={internship && internship._id}
-              src={internship &&  urlFor( internship.image.asset._ref).height(500).url()}
-              alt={internship && internship.title}
-            />
+                    key={internship && internship._id}
+                    src={internship && urlFor(internship.image.asset._ref).height(500).url()}
+                    alt={internship && internship.title}
+                />
             </Container>
         </Layout>
     );
