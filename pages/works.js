@@ -50,7 +50,7 @@ const Works = ({ works, internships }) => {
               return (
                 <Section key={internship._id}>
                   <WorkGridItem
-                    id={internship._id}
+                    id={`internship?q=${internship._id}`}
                     title={internship.title}
                     thumbnail={urlFor(internship.image.asset._ref).width(600).url()}
                   >
@@ -124,5 +124,7 @@ export async function getStaticProps() {
       works,
       internships
     }
+   
   }
+
 }
