@@ -13,6 +13,7 @@ It has both light and dark mode.
 - Additional browser support
 
 - Add more integrations
+- Loved the repo.
 
 
 ## Environment Variables
