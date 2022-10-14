@@ -5,6 +5,8 @@ It has both light and dark mode.
 
 ## Badges
 
+NextJs is Shit Switch to flutter.
+
 
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
