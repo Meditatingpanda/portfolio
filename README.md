@@ -15,6 +15,16 @@ It has both light and dark mode.
 - Add more integrations
 
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`API_KEY`
+
+`GOOGLE_ANALYTICS_KEY`
+
+
+
 
 ## Badges
 
