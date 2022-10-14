@@ -3,6 +3,30 @@ This portfoilo has both inbuilt admin pannel.
 It has both light and dark mode.
 
 
+## Authors
+
+- [@meditatingpanda](https://github.com/Meditatingpanda)
+
+
+## Roadmap
+
+- Additional browser support
+
+- Add more integrations
+- Loved the repo.
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`API_KEY`
+
+`GOOGLE_ANALYTICS_KEY`
+
+
+
+
 ## Badges
 
 
