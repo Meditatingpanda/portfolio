@@ -24,6 +24,8 @@ To run this project, you will need to add the following environment variables to
 
 `GOOGLE_ANALYTICS_KEY`
 
+hi
+
 
 
 
