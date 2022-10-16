@@ -3,6 +3,7 @@ This portfoilo has both inbuilt admin pannel.
 It has both light and dark mode.
 It has dynamic routes which is preferably one of the best feature in next js.
 Takuya Matsuyama is the great indie developer of japan
+The Cat design was made in Three JS feature which enables the 3D structure of cat .
 
 
 ## Authors
