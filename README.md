@@ -4,6 +4,7 @@ It has both light and dark mode.
 It has dynamic routes which is preferably one of the best feature in next js.
 Takuya Matsuyama is the great indie developer of japan
 The Cat design was made in Three JS feature which enables the 3D structure of cat .
+The best portfolio ever for beginners teaches us to learn React and NextJs in structured way
 
 
 ## Authors
