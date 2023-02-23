@@ -1682,6 +1682,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vercel/analytics@npm:^0.1.10":
+  version: 0.1.10
+  resolution: "@vercel/analytics@npm:0.1.10"
+  peerDependencies:
+    react: ^16.8||^17||^18
+  checksum: e6f6741f47363e32105593e003c7034a48af417019e2c6bf90156f65cee6432cac32b01ac89fe14b985161bb8639757047696de0c9e7dcd44217387828734e0c
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:^1.0.0":
   version: 1.1.1
   resolution: "abbrev@npm:1.1.1"
@@ -3833,6 +3842,7 @@ __metadata:
     "@emotion/styled": ^11.8.1
     "@notionhq/client": ^1.0.4
     "@sanity/image-url": ^1.0.1
+    "@vercel/analytics": ^0.1.10
     eslint: ^8.13.0
     eslint-config-next: ^12.1.5
     framer-motion: ^6.3.0
