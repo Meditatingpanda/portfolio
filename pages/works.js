@@ -8,9 +8,9 @@ import Client, { urlFor } from '../lib/sanity'
 // import client from '../lib/notion'
 
 const Works = ({ works, internships }) => {
-  console.log(urlFor(internships[0].image.asset._ref))
-  console.log(works)
-  console.log(internships)
+  // console.log(urlFor(internships[0].image.asset._ref))
+
+  // console.log(internships)
   return (
     <Layout title="Works">
       <Container>
@@ -111,9 +111,10 @@ const Works = ({ works, internships }) => {
 export default Works
 
 export async function getStaticProps() {
-  const works = await Client.fetch(`*[_type == "work"]`)
+  let works = await Client.fetch(`*[_type == "work"]`)
   const internships = await Client.fetch(`*[_type == "internship"]`)
-  console.log(works)
+  works = works.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt))
+  //console.log(works)
   // const databaseId = process.env.NEXT_PUBLIC_WORK_DB
   // const res = await client.databases.query({
   //   database_id: databaseId
@@ -124,7 +125,7 @@ export async function getStaticProps() {
       works,
       internships
     }
-   
+
   }
 
 }

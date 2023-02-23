@@ -1,5 +1,7 @@
 import Logo from './logo'
 import NextLink from 'next/link'
+import  Client  from '../lib/sanity'
+import { useEffect,useState } from 'react'
 import {
   Container,
   Box,
@@ -36,9 +38,18 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
   )
 }
 
-const Navbar = props => {
+const Navbar =( props) => {
   const { path } = props
-
+  const [resume, setResume] = useState(null)
+  useEffect(() => {
+    const fetchResume = async () => {
+      const resume = await Client.fetch(`*[_type == "resume"]`)
+      setResume(resume[0].url)
+    }
+    fetchResume()
+    console.log("resume")
+  },[])
+ 
   return (
     <Box
       position="fixed"
@@ -79,7 +90,7 @@ const Navbar = props => {
           </LinkItem>
           <LinkItem
             target="_blank"
-            href="https://drive.google.com/file/d/1OJTrPtlgCosZamEupMC44wuAdp1MKdFB/view?usp=sharing"
+            href={resume?resume:""}
             path={path}
             display="inline-flex"
             alignItems="center"
@@ -127,7 +138,7 @@ const Navbar = props => {
                 </NextLink>
                 <MenuItem
                   as={Link}
-                  href="https://drive.google.com/file/d/1OJTrPtlgCosZamEupMC44wuAdp1MKdFB/view?usp=sharing"
+                  href={resume?resume:""}
                 >
                   Resume
                 </MenuItem>
@@ -147,3 +158,5 @@ const Navbar = props => {
 }
 
 export default Navbar
+
+

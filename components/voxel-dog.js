@@ -53,7 +53,12 @@ const VoxelDog = () => {
 
       // 640 -> 240
       // 8   -> 6
-      const scale = scH * 0.005 + 4.8
+      //const light = new THREE.DirectionalLight(0xffffff, 1);
+     // const scale = scH * 0.005 + 6
+      const scale = 6
+
+        
+       
       const camera = new THREE.OrthographicCamera(
         -scale,
         scale,
@@ -65,7 +70,7 @@ const VoxelDog = () => {
       camera.position.copy(initialCameraPosition)
       camera.lookAt(target)
       setCamera(camera)
-
+     // const light=new THREE.SpotLight(0xffffff, 1, 0, Math.PI / 2, 1);
       const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
       scene.add(ambientLight)
 
@@ -76,7 +81,7 @@ const VoxelDog = () => {
 
       loadGLTFModel(scene, '/panda.glb', {
         receiveShadow: false,
-        castShadow: false
+        castShadow: true
       }).then(() => {
         animate()
         setLoading(false)
