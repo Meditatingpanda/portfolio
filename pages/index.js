@@ -19,7 +19,7 @@ import Section from '../components/section'
 import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
 import { FaLinkedin } from 'react-icons/fa'
 import Image from 'next/image'
-
+import {AiOutlineMail} from 'react-icons/ai'
 
 
 const ProfileImage = chakra(Image, {
@@ -228,9 +228,9 @@ const Home = () => {
         </SimpleGrid> */}
 
           <Box align="center" my={4}>
-            <NextLink href="/works" passHref scroll={false}>
-              <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
-                Explore My Work
+            <NextLink href="mailto:grp.gyanaranjan@gmail.com"  passHref scroll={false}>
+              <Button rightIcon={<AiOutlineMail />} colorScheme="teal">
+                Contact me
               </Button>
             </NextLink>
           </Box>

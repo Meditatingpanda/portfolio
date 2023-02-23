@@ -3,7 +3,9 @@ import {
   Badge,
   Link,
   List,
-  ListItem
+  ListItem,
+
+
   // AspectRatio
 } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
@@ -15,7 +17,7 @@ import Client, { urlFor } from '../../lib/sanity'
 
 
 const Work = ({ work }) => {
-  console.log(work)
+
   // const { projects, desc, website, stack, imgs } = work[0].properties
   // const imgsList = imgs.rich_text.filter((img, index) => index % 2 === 0)
 
@@ -23,7 +25,7 @@ const Work = ({ work }) => {
     <Layout title={work[0].title}>
       <Container>
         <Title>
-          {work[0].title} <Badge>2022-</Badge>
+          {work[0].title} <Badge>{new Date(work[0]._createdAt).getFullYear()}-</Badge>
         </Title>
         <P>{work[0].desc}</P>
         <List ml={4} my={4}>
@@ -53,15 +55,20 @@ const Work = ({ work }) => {
           </Link>
         </ListItem> */}
         </List>
+        
         {work[0].image.map((img, id) => {
           return (
+
             <WorkImage
+
               key={id}
               src={urlFor(img.asset._ref).height(500).url()}
               alt={work[0].title}
             />
           )
         })}
+   
+        
 
         {/* <AspectRatio maxW="640px" ratio={1.7} my={4}>
         <iframe
@@ -85,7 +92,7 @@ export async function getStaticPaths() {
   //   database_id: databaseId
   // })
   const works = await Client.fetch(`*[_type == "work"]`)
-  
+
   // Get the paths we want to pre-render based on posts
   const paths = works.map(post => ({
     params: { id: post._id }
@@ -106,6 +113,7 @@ export async function getStaticProps({ params }) {
   // })
   const works = await Client.fetch(`*[_type == "work"]`)
   const work = works.filter(key => params.id === key._id)
+  //console.log(work)
 
   // Pass post data to the page via props
   return { props: { work } }
