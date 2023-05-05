@@ -29,20 +29,31 @@ function Website({ Component, pageProps, router }) {
       </Script>
       <Chakra cookies={pageProps.cookies}>
         <Fonts />
-        <Layout router={router}>
-          <AnimatePresence
-            exitBeforeEnter
-            initial={true}
-            onExitComplete={() => {
-              if (typeof window !== 'undefined') {
-                window.scrollTo({ top: 0 })
-              }
-            }}
-          >
-            <Component {...pageProps} key={router.route} />
-            <Analytics />
-          </AnimatePresence>
-        </Layout>
+        {
+          router.asPath === '/resume' ? (
+            <div>
+              <iframe src={`/resume.pdf`} width="100%" height="800px" />
+            </div>
+          ) : null
+        }
+        {
+          router.asPath === '/resume' ? null : (
+            <Layout router={router}>
+              <AnimatePresence
+                exitBeforeEnter
+                initial={true}
+                onExitComplete={() => {
+                  if (typeof window !== 'undefined') {
+                    window.scrollTo({ top: 0 })
+                  }
+                }}
+              >
+                <Component {...pageProps} key={router.route} />
+                <Analytics />
+              </AnimatePresence>
+            </Layout>
+          )
+        }
       </Chakra>
     </>
   )
