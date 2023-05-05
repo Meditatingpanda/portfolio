@@ -19,7 +19,7 @@ import Section from '../components/section'
 import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
 import { FaLinkedin } from 'react-icons/fa'
 import Image from 'next/image'
-import {AiOutlineMail} from 'react-icons/ai'
+import { AiOutlineMail } from 'react-icons/ai'
 
 
 const ProfileImage = chakra(Image, {
@@ -30,7 +30,7 @@ const ProfileImage = chakra(Image, {
 
 const Home = () => {
 
- 
+
 
   return (
     <Layout>
@@ -107,9 +107,16 @@ const Home = () => {
             Timeline
           </Heading>
           <BioSection>
-            <BioYear>2022 to present</BioYear>
+            <BioYear>2023 to present</BioYear>
+            Building{' '}
+            <Link href="https://www.fullcircle.fyi/" target="_blank">
+              @FullCircle
+            </Link>
+          </BioSection>
+          <BioSection>
+            <BioYear>2022 to end of 2022</BioYear>
             Working as SDE Intern{' '}
-            <Link href="https://twitter.com/FelvinSearch" target="_blank">
+            <Link href="https://felvin.com/" target="_blank">
               @FelvinSearch
             </Link>
           </BioSection>
@@ -228,7 +235,7 @@ const Home = () => {
         </SimpleGrid> */}
 
           <Box align="center" my={4}>
-            <NextLink href="mailto:grp.gyanaranjan@gmail.com"  passHref scroll={false}>
+            <NextLink href="mailto:grp.gyanaranjan@gmail.com" passHref scroll={false}>
               <Button rightIcon={<AiOutlineMail />} colorScheme="teal">
                 Contact me
               </Button>
