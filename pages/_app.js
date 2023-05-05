@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import Chakra from '../components/chakra'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react';
+import { Box } from '@chakra-ui/react'
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual'
 }
@@ -31,9 +32,9 @@ function Website({ Component, pageProps, router }) {
         <Fonts />
         {
           router.asPath === '/resume' ? (
-            <div>
-              <iframe src={`/resume.pdf`} width="100%" height="800px" />
-            </div>
+            <Box height={'100vh'} width='100vw'>
+              <iframe src={`/resume.pdf`} width="100%" height="100%" />
+            </Box>
           ) : null
         }
         {
